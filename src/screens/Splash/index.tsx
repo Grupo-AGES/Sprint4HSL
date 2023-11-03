@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Groups() {
+export function Splash() {
   return (
     <View style={styles.container}>
-      <Text>Groups</Text>
+      <Text>Splash</Text>
     </View>
   );
 }

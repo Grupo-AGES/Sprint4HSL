@@ -1,7 +1,8 @@
-import  Groups  from '@screens/Groups';
+import  { Routes }   from './src/routes';
+
 
 export default function App() {
   return (
-    <Groups/>
+    <Routes/>
   );
 }
