@@ -10,7 +10,7 @@ import { useState } from "react";
 
 import styles from './styles';
 
-export function Login() {
+export function Login(props: any) {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [matricula, setMatricula] = useState("");
@@ -20,6 +20,23 @@ export function Login() {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  function handleNoLogin(){
+    props.navigation.navigate('register')
+  }
+
+  function forgotPassword(){
+    props.navigation.navigate('recoveryPassword')
+  }
+
+  function forgotMatricula(){
+    props.navigation.navigate('recoveryMatricula')
+  }
+
+  function handleLogin(){
+    props.navigation.navigate('home')
+  }
+
   return (
     <View style={styles.container}>
         <ScrollView>
@@ -57,15 +74,18 @@ export function Login() {
           <TouchableOpacity 
           style={styles.button}
           >
-            <Text style={styles.buttonText}>Entrar</Text>
+            <Text style={styles.buttonText} onPress={handleLogin}>Entrar</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonRecovery}>
-            <Text style={styles.recoveryText}>Esqueci a senha</Text>
+            <Text style={styles.recoveryText} onPress={forgotPassword}>Esqueci a senha</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonRecovery}>
+            <Text style={styles.recoveryText} onPress={forgotMatricula}>Esqueci a matrícula</Text>
           </TouchableOpacity>
           <TouchableOpacity 
           style={styles.buttonRegister}
           >
-            <Text style={styles.registerText}>Não possui login? Cadastre-se aqui!</Text>
+            <Text style={styles.registerText} onPress={handleNoLogin}>Não possui login? Cadastre-se aqui!</Text>
           </TouchableOpacity>
         </View>
         </ScrollView>
