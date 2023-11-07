@@ -1,19 +1,21 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#ffffff',
-        width: '100%',
-        height: '100%',
-    },
-    header: {
+    headerLoggado: {
         paddingTop: 20,
         paddingBottom: 20,
         paddingLeft: 20,
         justifyContent: 'center',
-        height: 150,
+        height: 100,
         backgroundColor: '#005CA3',
+    },
+    headerNoLoggado: {
+        paddingTop: 20,
+        paddingBottom: 20,
+        paddingLeft: 20,
+        justifyContent: 'center',
+        height: 100,
+        backgroundColor: '#ffffff',
     },
     imageHeader: {
         marginTop: 20,

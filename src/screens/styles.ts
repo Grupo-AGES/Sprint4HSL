@@ -7,15 +7,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
-    header: {
-        padding: 80,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#ffffff',
-    },
-    imageHeader: {
-        marginTop: 20,
-    },
     formContent: {
         width: '100%',
         height: '100%',
