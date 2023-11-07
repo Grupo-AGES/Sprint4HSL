@@ -8,7 +8,9 @@ import {
 } from "react-native";
 import { useState } from "react";
 
-import styles from './styles';
+import { Header } from '../../components/Header'
+
+import styles from '../styles';
 
 export function Login(props: any) {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +18,7 @@ export function Login(props: any) {
   const [matricula, setMatricula] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const [logged, setLogged] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -34,17 +37,15 @@ export function Login(props: any) {
   }
 
   function handleLogin(){
+    setLogged(true)
+    console.log("logou")
     props.navigation.navigate('home')
   }
 
   return (
     <View style={styles.container}>
         <ScrollView>
-        <View style={styles.header}>
-          <View style={styles.imageHeader}>
-            <Image source={require("../../../assets/logoBlue.png")} />
-          </View>
-        </View>
+          <Header logged={logged}/>
         <View style={styles.formContent}>
           <Text style={styles.formLabel}>Matrícula</Text>
           <TextInput

@@ -8,7 +8,8 @@ import {
     ScrollView,
   } from "react-native";
   import React from "react";
-  
+
+  import { Header } from '../../components/Header'
   
   export default function Birthday() {
 
@@ -46,11 +47,7 @@ import {
     return (
       <View style={styles.container}>
         <ScrollView>
-          <View style={styles.header}>
-            <View style={styles.imageHeader}>
-              <Image source={require("../../../assets/Vector.png")} />
-            </View>
-          </View>
+        <Header logged={true}/>
           <View style={styles.formContent}>
             
           </View>

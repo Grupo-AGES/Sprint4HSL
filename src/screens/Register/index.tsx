@@ -2,7 +2,6 @@ import {
   View,
   Alert,
   Pressable,
-  StyleSheet,
   Text,
   Modal,
   TextInput,
@@ -12,6 +11,9 @@ import {
 } from "react-native";
 import React,{ useState } from "react";
 import { response } from "express";
+
+import { Header } from '../../components/Header'
+import styles from '../styles'
 
 export default function Register(props: any) {
   const [username, setName] = useState("");
@@ -71,6 +73,7 @@ export default function Register(props: any) {
   const samePasswordValue = () => {
     if(password==passwordConfirmation && password.length>8 && password.includes('!'||'@'||'#'||'%'||'&'||'*')){
       // handleRegister();
+      handleLogin();
     }else if(password!=passwordConfirmation){
       setMensagemModal('As senhas são diferentes, por favor insira a mesma senha');
       toggleModal();
@@ -87,136 +90,15 @@ export default function Register(props: any) {
     props.navigation.navigate('login')
   }
 
-  const stylesModal = StyleSheet.create({
-    centeredView: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 22,
-    },
-    modalView: {
-      margin: 20,
-      backgroundColor: 'white',
-      borderRadius: 20,
-      padding: 35,
-      alignItems: 'center',
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
-    },
-    button: {
-      borderRadius: 20,
-      padding: 10,
-      elevation: 2,
-    },
-    buttonOpen: {
-      backgroundColor: '#F194FF',
-    },
-    buttonClose: {
-      backgroundColor: '#2196F3',
-    },
-    textStyle: {
-      color: 'white',
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
-    modalText: {
-      marginBottom: 15,
-      textAlign: 'center',
-    },
-  });
-
-const styles = StyleSheet.create({
-    container:{
-        width: '100%',
-        height: '100%',
-        bottom: 0,
-    },
-    header:{
-        width: '100%',
-        height: 150,
-        backgroundColor: '#005CA3',
-        justifyContent: 'center',
-        marginTop: 0,
-    },
-    imageHeader: {
-        alignContent: 'center',
-        marginLeft: 20,
-        marginTop: 20,
-    },
-    formContent:{
-        width: '100%',
-        height: '100%',
-        marginTop: 1,
-    },
-    formLabel:{
-        color: '#005CA3',
-        fontSize: 20,
-        textAlign: 'left',
-        paddingLeft: 40,
-        marginTop: 23,
-    },
-    input:{
-        alignSelf: 'center',
-        borderWidth: 1,
-        borderRadius: 10,
-        borderColor: '#005CA3',
-        width: '80%',
-        height: 50,
-        padding: 10,
-    },
-    image: {
-        width: 20,
-        height: 20,
-        alignSelf: 'flex-end',
-        marginRight: 60,
-        marginTop: -35,
-      },
-      button: {
-        alignSelf: 'center',
-        backgroundColor: '#005CA3',
-        width: 300,
-        height: 50,
-        borderRadius: 8,
-        marginTop: 40,
-        justifyContent: 'center',
-      },
-      buttonText: {
-        color: 'white',
-        fontSize: 20,
-        textAlign: 'center',
-      },
-      buttonRegister: {
-        alignSelf: 'center',
-        backgroundColor: '#fff',
-        width: 300,
-        height: 50,
-        borderRadius: 8,
-        marginTop: 20,
-        justifyContent: 'center',
-      },
-      registerText: {
-        color: '#005CA3',
-        fontSize: 20,
-        textAlign: 'center',
-      },
-      
-});
+  function handleLogin(){
+    props.navigation.navigate('home')
+  }
 
   return (
     <View style={styles.container}>
       <ScrollView>
-        <View style={styles.header}>
-          <View style={styles.imageHeader}>
-            <Image source={require("../../../assets/logo.png")} />
-          </View>
-        </View>
-      <View style={stylesModal.centeredView}>
+        <Header logged={false}/>
+      <View style={styles.centeredView}>
         <Modal
         animationType="slide"
         transparent={true}
@@ -225,13 +107,13 @@ const styles = StyleSheet.create({
           Alert.alert('Modal has been closed.');
           setModalVisivel(!modalVisivel);
         }}>
-        <View style={stylesModal.centeredView}>
-          <View style={stylesModal.modalView}>
-            <Text style={stylesModal.modalText}>{mensagemModal}</Text>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>{mensagemModal}</Text>
             <Pressable
-              style={[stylesModal.button, stylesModal.buttonClose]}
+              style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisivel(!modalVisivel)}>
-              <Text style={stylesModal.textStyle}>Fechar</Text>
+              <Text style={styles.textStyle}>Fechar</Text>
             </Pressable>
           </View>
         </View>
