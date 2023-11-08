@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     },
     buttonRecoverySenha: {
         alignItems: 'center',
-        marginTop: 39,
+        marginTop: 35,
     },
     buttonRecoveryMatricula: {
         alignItems: 'center',
@@ -78,6 +78,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 12,
     },
+    buttonRegister2: {
+        alignItems: 'center',
+        marginTop: 35,
+    },
+
     registerText: {
         color: '#F3F6FA',
         fontSize: 12,
