@@ -25,7 +25,7 @@ import styles from '../styles'
         <ScrollView>
           <Header logged={false}/>
           <View style={styles.formContent}>
-            <Text style={styles.formLabel}>Email</Text>
+            <Text style={styles.formLabel1}>Email</Text>
             <TextInput
               style={styles.input}
               placeholder="Digite seu email"
@@ -35,7 +35,7 @@ import styles from '../styles'
               <Text style={styles.buttonText}>Enviar</Text>
             </TouchableOpacity>
   
-            <TouchableOpacity style={styles.buttonRegister}>
+            <TouchableOpacity style={styles.buttonRegister2}>
               <Text style={styles.registerText} onPress={handleNoLogin}>
                 Não possui login? Cadastre-se aqui!
               </Text>
