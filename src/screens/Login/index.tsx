@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import { useState } from "react";
 
+import { StyleSheet, Platform, StatusBar } from "react-native";
+
 import { Header } from '../../components/Header'
 
 import styles from '../styles';
@@ -47,14 +49,14 @@ export function Login(props: any) {
         <ScrollView>
           <Header logged={logged}/>
         <View style={styles.formContent}>
-          <Text style={styles.formLabel}>Matrícula</Text>
+          <Text style={styles.formLabel1}>Matrícula</Text>
           <TextInput
             style={styles.input}
             placeholder="Digite sua matrícula"
             keyboardType="numeric"
             value={matricula}
           />
-          <Text style={styles.formLabel}>Senha</Text>
+          <Text style={styles.formLabel2}>Senha</Text>
           <TextInput
             style={styles.input}
             placeholder="Digite sua senha"
@@ -77,10 +79,10 @@ export function Login(props: any) {
           >
             <Text style={styles.buttonText} onPress={handleLogin}>Entrar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonRecovery}>
+          <TouchableOpacity style={styles.buttonRecoverySenha}>
             <Text style={styles.recoveryText} onPress={forgotPassword}>Esqueci a senha</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonRecovery}>
+          <TouchableOpacity style={styles.buttonRecoveryMatricula}>
             <Text style={styles.recoveryText} onPress={forgotMatricula}>Esqueci a matrícula</Text>
           </TouchableOpacity>
           <TouchableOpacity 
