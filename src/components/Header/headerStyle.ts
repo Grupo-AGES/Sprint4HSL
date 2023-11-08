@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
         paddingLeft: 20,
         justifyContent: 'center',
-        height: 100,
-        backgroundColor: '#ffffff',
+        height: 197,
+        backgroundColor: '#F3F6FA',
     },
     imageHeader: {
         marginTop: 20,
