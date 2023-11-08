@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
+    containerLogged: {
+        flex: 1,
+        backgroundColor: '#ffffff',
+        width: '100%',
+        height: '100%',
+    },
     formContent: {
         width: '100%',
         height: '100%',
