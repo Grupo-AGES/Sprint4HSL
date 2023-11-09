@@ -28,7 +28,7 @@ export default function RecoveryPassword(props: any) {
       <ScrollView>
         <Header logged={false}/>
         <View style={styles.formContent}>
-            <Text style={styles.formLabel}>Matrícula</Text>
+            <Text style={styles.formLabel1}>Matrícula</Text>
             <TextInput
               style={styles.input}
               placeholder="Digite sua matrícula"
@@ -39,7 +39,7 @@ export default function RecoveryPassword(props: any) {
           >
             <Text style={styles.buttonText} onPress={handleCode}>Enviar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonRecovery}>
+          <TouchableOpacity style={styles.buttonRecoverySenha}>
             <Text style={styles.recoveryText} onPress={newLogin}>Volte para a tela de login</Text>
           </TouchableOpacity>
           <TouchableOpacity 
