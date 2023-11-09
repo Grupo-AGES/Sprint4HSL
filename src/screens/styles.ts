@@ -31,6 +31,12 @@ const styles = StyleSheet.create({
         marginTop: 2,
         marginLeft: 39,
     },
+    formLabel3: {
+        color: '#F3F6FA',
+        fontSize: 12,
+        marginTop: 2,
+        marginLeft: 39,
+    },
     input: {
         backgroundColor: '#F3F6FA',
         borderRadius: 10,
