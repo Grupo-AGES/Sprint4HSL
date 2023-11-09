@@ -8,6 +8,7 @@ import { Home } from '@screens/Home'
 import ChangePassword from '@screens/ChangePassword'
 import RecoveryMatricula from '@screens/RecoveryMatricula'
 import CodeView from '@screens/CodeView'
+import Birthday from '@screens/Birthday'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
@@ -18,6 +19,9 @@ export function AppRoutes() {
             name="login"
             component={Login}
             />
+            <Screen
+            name='birthday'
+            component={Birthday}/>
             <Screen
             name="splash"
             component={Splash}

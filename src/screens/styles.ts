@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
+    textBDay: {
+        color: '#005CA3;'
+    },
     formContent: {
         width: '100%',
         height: '100%',
