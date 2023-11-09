@@ -36,7 +36,38 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginTop: 2,
         marginLeft: 39,
+        borderWidth: 1,
+        borderColor: '#005CA3',
+        borderRadius: 10,
+        height: 35,
+        width: 283,
     },
+
+    formLabel4: {
+        color: '#F3F6FA',
+        marginTop: -20,
+        fontSize: 12,
+        padding: 10,
+        marginLeft: 39,
+    },
+
+    formLabel5: {
+        color: '#F3F6FA',
+        marginTop: 0,
+        marginBottom: -20,
+        fontSize: 12,
+        padding: 25,
+        marginLeft: 24,
+    },
+
+    input2: {
+        backgroundColor: '#F3F6FA',
+        padding: 10,
+        marginTop: 10,
+        marginBottom: 20,
+        alignSelf: 'center',
+    },
+
     input: {
         backgroundColor: '#F3F6FA',
         borderRadius: 10,
@@ -59,12 +90,29 @@ const styles = StyleSheet.create({
         backgroundColor: '#4EB0E3',
         width: 283,
         height: 35,
-        borderRadius: 8,
+        borderRadius: 10,
         marginTop: 27,
         justifyContent: 'center',
         alignItems: 'center',
     },
+    button2: {
+        alignSelf: 'center',
+        backgroundColor: '#77C1E9',
+        width: 283,
+        height: 35,
+        borderRadius: 10,
+        marginTop: 27,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#005CA3',
+
+    },
     buttonText: {
+        color: '#F3F6FA',
+        fontSize: 12,
+    },
+    buttonText2: {
         color: '#F3F6FA',
         fontSize: 12,
     },
@@ -120,13 +168,13 @@ const styles = StyleSheet.create({
           modalView: {
             margin: 20,
             backgroundColor: '#F3F6FA',
-            borderRadius: 20,
-            padding: 35,
+            borderRadius: 15,
+            padding: 20,
             alignItems: 'center',
             shadowColor: '#000',
             shadowOffset: {
-            width: 0,
-            height: 2,
+            width: 2,
+            height: 4,
             },
             shadowOpacity: 0.25,
             shadowRadius: 4,
