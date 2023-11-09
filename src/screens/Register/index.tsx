@@ -120,7 +120,7 @@ export default function Register(props: any) {
       </Modal>
     </View>
         <View style={styles.formContent}>
-          <Text style={styles.formLabel}>Nome Completo</Text>
+          <Text style={styles.formLabel3}>Nome Completo</Text>
           <TextInput
             style={styles.input}
             placeholder="Digite seu nome completo"
@@ -128,7 +128,7 @@ export default function Register(props: any) {
             value={username}
             onChangeText={setName}
           />
-          <Text style={styles.formLabel}>Email</Text>
+          <Text style={styles.formLabel3}>Email</Text>
           <TextInput
             style={styles.input}
             placeholder="Digite seu email"
@@ -136,7 +136,7 @@ export default function Register(props: any) {
             value={email}
             onChangeText={setEmail}
           />
-          <Text style={styles.formLabel}>Data de nascimento</Text>
+          <Text style={styles.formLabel3}>Data de nascimento</Text>
           <TextInput
               style={styles.input}
               placeholder="DD/MM/YYYY"
@@ -148,7 +148,7 @@ export default function Register(props: any) {
             source={require("../../../assets/calendario.png")}
             style={styles.image}
           />
-          <Text style={styles.formLabel}>Insira sua senha</Text>
+          <Text style={styles.formLabel3}>Insira sua senha</Text>
           <TextInput
             style={styles.input}
             placeholder="Digite sua senha"
@@ -166,7 +166,7 @@ export default function Register(props: any) {
               style={styles.image}
             />
           </TouchableOpacity>
-          <Text style={styles.formLabel}>Repita sua senha</Text>
+          <Text style={styles.formLabel3}>Repita sua senha</Text>
           <TextInput
             style={styles.input}
             placeholder="Digite sua senha"
