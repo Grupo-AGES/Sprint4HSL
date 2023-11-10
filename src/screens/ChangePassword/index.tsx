@@ -6,13 +6,12 @@ import {
   ScrollView,
 } from "react-native";
 import React from "react";
-
 import { Header } from '../../components/Header'
 import styles from '../styles'
 
 export default function ChangePassword(props: any) {
 
-  function newLogin() {
+  function irLogin() {
     props.navigation.navigate('login')
   }
 
@@ -41,7 +40,7 @@ export default function ChangePassword(props: any) {
             <Text style={styles.buttonText}>Salvar alterações</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonRegister}>
-            <Text style={styles.registerText} onPress={newLogin}>Voltar</Text>
+            <Text style={styles.registerText} onPress={irLogin}>Voltar</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

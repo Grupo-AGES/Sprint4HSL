@@ -1,7 +1,8 @@
 import {
   View,
   Text,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from "react-native"
 import React from "react"
 import styles from '../styles'
@@ -10,7 +11,19 @@ import RNPickerSelect from 'react-native-picker-select'
 import { AniversariantesDia } from "@components/AniversariantesDia"
 import { AniversariantesMes } from "@components/AniversariantesMes"
 
-export default function Birthday() {
+export default function Birthday(props: any) {
+
+  function voltarHome(){
+    props.navigation.navigate('home')
+}
+
+function irPerfil(){
+    props.navigation.navigate('perfil')
+}
+
+function irListaAniver(){
+    props.navigation.navigate('birthday')
+}
 
   return (
     <View style={styles.containerLogged}>
@@ -41,6 +54,17 @@ export default function Birthday() {
           <AniversariantesDia />
           <Text style={styles.textBDay}>Outros</Text>
           <AniversariantesMes/>
+          <View style={styles.bodyMenu}>
+            <TouchableOpacity onPress={voltarHome}>
+                <img src={require("../../../assets/casa.png")} style={styles.imgMenu}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={irPerfil}>
+                <img src={require("../../../assets/perfil.png")} style={styles.imgMenu}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={irListaAniver} style={styles.imgMenu}>
+                <img src={require("../../../assets/balao.png")}/>
+            </TouchableOpacity>
+        </View>
         </View>
       </ScrollView>
     </View>

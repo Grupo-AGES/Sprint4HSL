@@ -17,8 +17,13 @@ const styles = StyleSheet.create({
         height: 197,
         backgroundColor: '#F3F6FA',
     },
+    imageHeaderLoggado: {
+        height: 26,
+        width: 26
+    },
     imageHeader: {
         marginTop: 20,
+        height: "auto",
     },
     formContent: {
         flex: 1,
