@@ -1,6 +1,5 @@
-import React, { ReactNode } from 'react';
-import { View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import React, { ReactNode } from 'react'
+import LinearGradient from 'react-native-web-linear-gradient' //botei pra web para testar por web, mas o correto é 'react-native-linear-gradient' para app
 
 interface BackgroundProps {
   children: ReactNode;
@@ -8,12 +7,13 @@ interface BackgroundProps {
 
 export default function Background({ children }: BackgroundProps) {
   return (
-    <View>
     <LinearGradient
-      colors={['#005CA3', '#368AC3', '#77C1E9']}
-      style={{ flex: 1 }}>
+      colors={["#005CA3", "#368AC3", "#77C1E9"]}
+      style={{ flex: 1 }}
+    >
       {children}
     </LinearGradient>
-    </View>
-  );
+  )
 }
+
+

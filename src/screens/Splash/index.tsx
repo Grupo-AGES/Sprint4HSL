@@ -1,18 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
+import Background from '@components/Background';
+import { Touchable, TouchableOpacity } from 'react-native';
 
-export function Splash() {
+//ta dando erro na imagem, ja tentei usar a tag Image, mas ai quebra a pagina inteira
+export function Splash(props: any) {
+  function irLogin(){
+    props.navigation.navigate('login')
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Splash</Text>
-    </View>
+    <Background>
+      <TouchableOpacity onPress={irLogin}>
+        <img src='../../../assets/logo.png'/> 
+      </TouchableOpacity>
+      
+    </Background>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

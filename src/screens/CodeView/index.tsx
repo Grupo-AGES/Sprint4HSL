@@ -9,7 +9,7 @@ import {
   } from "react-native";
   import React, { useState } from "react"
   import styles from '../styles'
-
+  import Background from "@components/Background";
   import { Header } from '../../components/Header'
   
   export default function CodeView(props: any) {
@@ -28,11 +28,11 @@ import {
       }
 
     return (
-      <View style={styles.container}>
+      <Background>
         <ScrollView>
         <Header logged={false}/>
           <View style={styles.formContent}>
-              <Text style={styles.formLabel}>Envio confirmado para o email {email}</Text>
+              <Text style={styles.formLabel1}>Envio confirmado para o email {email}</Text>
 
               <Text style={styles.inputText}>Insira o código: </Text>
               <View style={styles.codeInputContainer}>
@@ -58,7 +58,7 @@ import {
               />
             ))}
           </View>
-            <TouchableOpacity style={styles.buttonRecovery}>
+            <TouchableOpacity style={styles.button}>
               <Text style={styles.recoveryText}>Reenviar código</Text>
             </TouchableOpacity>
             <TouchableOpacity 
@@ -68,6 +68,6 @@ import {
             </TouchableOpacity>
             </View>
         </ScrollView>
-      </View>
+      </Background>
     );
   }
