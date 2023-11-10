@@ -5,26 +5,22 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-} from "react-native";
-import { useState } from "react";
-
-import { StyleSheet, Platform, StatusBar } from "react-native";
-
+} from "react-native"
+import { useState } from "react"
 import { Header } from '../../components/Header'
-
-import styles from '../styles';
+import styles from '../styles'
 
 export function Login(props: any) {
-  const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
-  const [matricula, setMatricula] = useState("");
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
-  const [logged, setLogged] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
+  const [password, setPassword] = useState("")
+  const [matricula, setMatricula] = useState("")
+  const [modalVisible, setModalVisible] = useState(false)
+  const [modalMessage, setModalMessage] = useState('')
+  const [logged, setLogged] = useState(false)
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
   function handleNoLogin(){
     props.navigation.navigate('register')
@@ -93,5 +89,5 @@ export function Login(props: any) {
         </View>
         </ScrollView>
       </View>
-  );
+  )
 }

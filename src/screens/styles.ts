@@ -1,8 +1,23 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+    imgMenu: {
+        height: 50,
+        width: 50,
+        margin: 25,
+        marginBottom: 3
+    },
+    bodyMenu: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "flex-end",
+        justifyContent: "space-around",
+        position: 'absolute',
+        bottom: 0
+    },
     container: {
         flex: 1,
+        position: 'relative',
         backgroundColor: '#005CA3',
         width: '100%',
         height: '100%',

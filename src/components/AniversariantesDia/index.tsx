@@ -17,7 +17,7 @@ export function AniversariantesDia() {
         <View style={styles.bodyAniver}>
             {aniversariantes.map((aniversariante, index) => (
         <View key={index}>
-            <Image source={aniversariante.img}/>
+            <img src={aniversariante.img}/>
           <Text>{aniversariante.nome}</Text>
           <Text>{aniversariante.idade}</Text>
         </View>
