@@ -9,12 +9,17 @@ import RecoveryMatricula from '@screens/RecoveryMatricula'
 import CodeView from '@screens/CodeView'
 import Birthday from '@screens/Birthday'
 import { Perfil } from '@screens/Perfil'
+import { Splash } from '@screens/Splash'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
 export function AppRoutes() {
     return (
         <Navigator screenOptions={{ headerShown: false}}>
+            <Screen
+            name="splash"
+            component={Splash}
+            />
             <Screen
             name="login"
             component={Login}

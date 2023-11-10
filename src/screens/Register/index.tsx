@@ -10,8 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 import React,{ useState } from "react";
-import { response } from "express";
-
+import Background from "@components/Background";
 import { Header } from '../../components/Header'
 import styles from '../styles'
 
@@ -95,7 +94,7 @@ export default function Register(props: any) {
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
       <ScrollView>
         <Header logged={false}/>
       <View style={styles.centeredView}>
@@ -192,6 +191,6 @@ export default function Register(props: any) {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </Background>
   );
 }

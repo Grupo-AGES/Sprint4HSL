@@ -6,7 +6,7 @@ import {
   ScrollView,
 } from "react-native";
 import React from "react";
-
+import Background from "@components/Background";
 import { Header } from '../../components/Header'
 import styles from '../styles'
 
@@ -24,7 +24,7 @@ export default function RecoveryPassword(props: any) {
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
       <ScrollView>
         <Header logged={false}/>
         <View style={styles.formContent}>
@@ -49,6 +49,6 @@ export default function RecoveryPassword(props: any) {
           </TouchableOpacity>
           </View>
       </ScrollView>
-    </View>
+    </Background>
   );
 }

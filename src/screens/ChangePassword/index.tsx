@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Header } from '../../components/Header'
+import Background from "@components/Background";
 import styles from '../styles'
 
 export default function ChangePassword(props: any) {
@@ -16,7 +17,7 @@ export default function ChangePassword(props: any) {
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
       <ScrollView>
         <Header logged={true} />
         <View style={styles.formContent}>
@@ -44,6 +45,6 @@ export default function ChangePassword(props: any) {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </Background>
   );
 }
