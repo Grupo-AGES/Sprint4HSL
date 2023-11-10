@@ -68,9 +68,10 @@ app.post("/user/logout", async(req,res)=>{
 
 
 app.post("/user", async (req, res) => {
+    console.log(req.body.email);
     try {
         const existingUser = await prisma.user.findFirst({ where: { email: req.body.email } });
-
+        
         console.log(existingUser)
         if (existingUser) {
             res.send("loginExist");
