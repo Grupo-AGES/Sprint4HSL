@@ -39,6 +39,7 @@ function Carousel() {
   ]
 
   useEffect(() => {
+    console.log("image1", carouselData[0].image)
     const interval = setInterval(() => {
       if (activeIndex === carouselData.length - 1) {
         flatlistRef.current?.scrollToIndex({

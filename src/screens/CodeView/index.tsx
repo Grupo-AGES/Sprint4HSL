@@ -9,7 +9,7 @@ import {
   } from "react-native";
   import React, { useState } from "react"
   import styles from '../styles'
-
+  import Background from "@components/Background";
   import { Header } from '../../components/Header'
   
   export default function CodeView(props: any) {
@@ -28,18 +28,18 @@ import {
       }
 
     return (
-      <View style={styles.container}>
+      <Background>
         <ScrollView>
         <Header logged={false}/>
           <View style={styles.formContent}>
-              <Text style={styles.formLabel}>Envio confirmado para o email {email}</Text>
+              <Text style={styles.formLabel1}>Envio confirmado para o email: {email}</Text>
 
               <Text style={styles.inputText}>Insira o código: </Text>
               <View style={styles.codeInputContainer}>
             {code.map((value, index) => (
               <TextInput
                 key={index}
-                style={styles.input}
+                style={styles.inputCode}
                 keyboardType="numeric"
                 maxLength={1}
                 value={value}
@@ -58,16 +58,17 @@ import {
               />
             ))}
           </View>
-            <TouchableOpacity style={styles.buttonRecovery}>
-              <Text style={styles.recoveryText}>Reenviar código</Text>
+          <TouchableOpacity>
+              <Text style={styles.textStyle}>Reenviar código</Text>
             </TouchableOpacity>
-            <TouchableOpacity 
-            style={styles.buttonBack}
-            >
-              <Text style={styles.backText} onPress={newLogin}>Voltar para a tela de login</Text>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.recoveryText}>Conferir</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.textStyle} onPress={newLogin}>Voltar para a tela de login</Text>
             </TouchableOpacity>
             </View>
         </ScrollView>
-      </View>
+      </Background>
     );
   }
