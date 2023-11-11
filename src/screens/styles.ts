@@ -1,6 +1,16 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+    bodySplash: {
+        display: 'flex',
+        alignItems: 'center', 
+        justifyContent: 'center',
+        flex: 1,
+        width: '100%'
+    },
+    imgSplash: {
+        width: '60%'
+    },
     imgMenu: {
         height: 50,
         width: 50,
@@ -12,6 +22,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "flex-end",
         justifyContent: "space-around",
+        width: '100%',
         position: 'absolute',
         bottom: 0
     },
@@ -33,8 +44,7 @@ const styles = StyleSheet.create({
     },
     formContent: {
         width: '100%',
-        height: '100%',
-        marginTop: 50,
+        height: '100%'
     },
     formLabel1: {
         color: '#F3F6FA',
@@ -95,6 +105,17 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 20,
         alignSelf: 'center',
+    },
+    inputCode: {
+        backgroundColor: '#F3F6FA',
+        borderRadius: 10,
+        boxShadow: '#4EB0E3',
+        width: '15%',
+        height: 35,
+        padding: 10,
+        marginTop: 10,
+        marginBottom: 20,
+        alignSelf: 'center', 
     },
     image: {
         width: 20,
@@ -162,13 +183,14 @@ const styles = StyleSheet.create({
         inputText: {
             marginTop: 20,
             width: 300,
-            color: '#005CA3',
+            color: '#F3F6FA',
             marginBottom: 5,
             marginLeft: 80,
         },
         codeInputContainer: {
             flexDirection: 'row',
             margin: 5,
+            justifyContent: 'space-between'
         },
         buttonBack: {
             marginTop: 300,

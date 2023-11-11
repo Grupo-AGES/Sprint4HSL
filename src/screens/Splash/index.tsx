@@ -1,18 +1,23 @@
 import Background from '@components/Background';
-import { Touchable, TouchableOpacity } from 'react-native';
+import styles from '@screens/styles';
+import { useEffect } from 'react';
+import { View } from 'react-native';
 
-//ta dando erro na imagem, ja tentei usar a tag Image, mas ai quebra a pagina inteira
 export function Splash(props: any) {
-  function irLogin(){
-    props.navigation.navigate('login')
-  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      props.navigation.replace('login');
+    }, 2100);
+
+    return () => clearTimeout(timer);
+  }, [props.navigation]);
 
   return (
     <Background>
-      <TouchableOpacity onPress={irLogin}>
-        <img src='../../../assets/logo.png'/> 
-      </TouchableOpacity>
-      
+      <View style={styles.bodySplash}>
+        <img style={styles.imgSplash} src={require('../../../assets/logo.png')}/> 
+      </View>
     </Background>
   );
 }

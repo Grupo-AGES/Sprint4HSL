@@ -53,6 +53,7 @@ export function Login(props: any) {
             placeholder="Digite sua matrícula"
             keyboardType="numeric"
             value={matricula}
+            onChangeText={(text) => setMatricula(text)}
           />
           <Text style={styles.formLabel2}>Senha</Text>
           <TextInput
