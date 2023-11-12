@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native"
-import React,{ useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Background from "@components/Background"
 import { Header } from '../../components/Header'
 import styles from '../styles'
@@ -30,8 +30,9 @@ export default function Register(props: any) {
     name: name,
     password: password,
     email: email,
-    nascimento: nascimento, 
+    nascimento: nascimento,
   }
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
@@ -46,27 +47,27 @@ export default function Register(props: any) {
     } else {
       setDate(
         cleanedText.substring(0, 2) +
-          '/' +
-          cleanedText.substring(2, 4) +
-          '/' +
-          cleanedText.substring(4, 8)
+        '/' +
+        cleanedText.substring(2, 4) +
+        '/' +
+        cleanedText.substring(4, 8)
       )
     }
   }
 
-    async function handleRegistration(data: any) {
-      try {
-          const response = await createUser(data);
-          setName('')
-    setEmail('')
-    setPassword('')
-    setDate('')
-     setMensagemModal('Cadastro realizado com sucesso! Enviamos um e-mail com sua matricula') 
-    toggleModal()
-      } catch (error) {
-         setMensagemModal('Erro no cadastro, tente novamente mais tarde')
-      toggleModal() 
-      }
+  async function handleRegistration(data: any) {
+    try {
+      const response = await createUser(data);
+      setName('')
+      setEmail('')
+      setPassword('')
+      setDate('')
+      setMensagemModal('Cadastro realizado com sucesso! Enviamos um e-mail com sua matricula')
+      toggleModal()
+    } catch (error) {
+      setMensagemModal('Erro no cadastro, tente novamente mais tarde')
+      toggleModal()
+    }
   }
 
   const toggleModal = () => {
@@ -74,54 +75,54 @@ export default function Register(props: any) {
   }
 
   const samePasswordValue = (e: { preventDefault: () => void }) => {
-    if(password==passwordConfirmation && password.length>8 && password.includes('!'||'@'||'#'||'%'||'&'||'*')){
+    if (password == passwordConfirmation && password.length > 8 && password.includes('!' || '@' || '#' || '%' || '&' || '*')) {
       handleRegistration(data)
 
       setTimeout(() => {
         props.navigation.replace('home');
-      }, 2100)
+      }, 5000)
 
-    }else if(password!=passwordConfirmation){
+    } else if (password != passwordConfirmation) {
       setMensagemModal('As senhas são diferentes, por favor insira a mesma senha')
       toggleModal()
-    }else if(password.length<8){
+    } else if (password.length < 8) {
       setMensagemModal('A senha é muito curta, por favor insira mais caracteres')
       toggleModal()
-    }else if(password.includes('!'||'@'||'#'||'%'||'&'||'*')==false){
+    } else if (password.includes('!' || '@' || '#' || '%' || '&' || '*') == false) {
       setMensagemModal('A senha precisa conter pelo menos um caractere especial(exemplo: !)')
       toggleModal()
     }
   }
 
-  function irLogin(){
+  function irLogin() {
     props.navigation.navigate('login')
   }
 
   return (
     <Background>
       <ScrollView>
-        <Header logged={false}/>
-      <View style={styles.centeredView}>
-        <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisivel}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.')
-          setModalVisivel(!modalVisivel)
-        }}>
+        <Header logged={false} />
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>{mensagemModal}</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisivel(!modalVisivel)}>
-              <Text style={styles.textStyle}>Fechar</Text>
-            </Pressable>
-          </View>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisivel}
+            onRequestClose={() => {
+              Alert.alert('Modal has been closed.')
+              setModalVisivel(!modalVisivel)
+            }}>
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>{mensagemModal}</Text>
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setModalVisivel(!modalVisivel)}>
+                  <Text style={styles.textStyle}>Fechar</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
         </View>
-      </Modal>
-    </View>
         <View style={styles.formContent}>
           <Text style={styles.formLabel3}>Nome Completo</Text>
           <TextInput
@@ -141,11 +142,11 @@ export default function Register(props: any) {
           />
           <Text style={styles.formLabel3}>Data de nascimento</Text>
           <TextInput
-              style={styles.input}
-              placeholder="DD/MM/YYYY"
-              keyboardType="numeric"
-              value={nascimento}
-              onChangeText={handleDateChange}
+            style={styles.input}
+            placeholder="DD/MM/YYYY"
+            keyboardType="numeric"
+            value={nascimento}
+            onChangeText={handleDateChange}
           />
           <Image
             source={require("../../../assets/calendario.png")}
@@ -187,8 +188,8 @@ export default function Register(props: any) {
               style={styles.image}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} onPress={samePasswordValue}>Cadastrar</Text>
+          <TouchableOpacity style={styles.button} onPress={samePasswordValue}>
+            <Text style={styles.buttonText}>Cadastrar</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonRegister}>
             <Text style={styles.registerText} onPress={irLogin}>Voltar para o login</Text>

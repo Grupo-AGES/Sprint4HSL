@@ -155,13 +155,11 @@ app.get("/user/birthdays", async (req, res) => {
     const mes = hoje.getMonth() + 1
 
     try {
-        // Suponhamos que você deseja filtrar os aniversários para o mês de dezembro (mês 12)
-
-        // Use o Prisma para buscar usuários cujos meses de aniversário correspondem ao mês selecionado
+        // Use o Prisma para buscar usuários cujos aniversário correspondem ao dia atual
         const usersWithMatchingBirthdays = await prisma.user.findMany({
             where: {
                 nascimento: {
-                    contains: `${dia}/${mes}/`, // Procura o dia e mês selecionados no formato "DD/MM/YYYY"
+                    contains: `${dia}/${mes}/`, // Procura o dia e mês atual no formato "DD/MM/YYYY"
                 },
             },
 

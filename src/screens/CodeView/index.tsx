@@ -1,21 +1,43 @@
 import {
     View,
     Text,
-    StyleSheet,
     TextInput,
-    Image,
     TouchableOpacity,
     ScrollView,
   } from "react-native";
   import React, { useState } from "react"
   import styles from '../styles'
-  import Background from "@components/Background";
+  import Background from "@components/Background"
   import { Header } from '../../components/Header'
+  import { recoveryCode, getUser, recoveryPassword } from '../../../services/integracao'
   
   export default function CodeView(props: any) {
-    const [code, setCode] = useState(['', '', '', '', '', '']);
-    const codeInputs: number | any[] = [];
-    const email = "anamariabraga@globo.com"
+    const [code, setCode] = useState(['', '', '', '', '', ''])
+    const codeInputs: number | any[] = []
+
+    const email = async function user(){
+      const data = getUser()
+      data.email
+    }
+
+    async function reenviaCodigo(email: string) {
+      try {
+        const response = await recoveryPassword(email)
+    props.navigation.navigate('codeView')
+      } catch (error) {
+        console.error("error reenviar codigo", error)
+      }
+    }
+
+    async function handleCode(code: number) {
+      try {
+        const response = await recoveryCode(code)
+        setCode([''])
+    props.navigation.navigate('changePassword')
+      } catch (error) {
+        console.error("error code view", error)
+      }
+    }
 
     const focusNextInput = (index: number) => {
         if (index < codeInputs.length - 1) {
@@ -58,10 +80,10 @@ import {
               />
             ))}
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={reenviaCodigo}>
               <Text style={styles.textStyle}>Reenviar código</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={handleCode}>
               <Text style={styles.recoveryText}>Conferir</Text>
             </TouchableOpacity>
             <TouchableOpacity>

@@ -4,7 +4,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native"
-import React from "react"
+import React, { useState } from "react"
 import styles from '../styles'
 import { Header } from '../../components/Header'
 import RNPickerSelect from 'react-native-picker-select'
@@ -12,6 +12,7 @@ import { AniversariantesDia } from "@components/AniversariantesDia"
 import { AniversariantesMes } from "@components/AniversariantesMes"
 
 export default function Birthday(props: any) {
+  const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
 
   function voltarHome(){
     props.navigation.navigate('home')
@@ -34,7 +35,7 @@ function irListaAniver(){
           <RNPickerSelect placeholder={{
             label: "Selecione o mês"
           }}
-            onValueChange={(value) => console.log(value)}
+            onValueChange={(value) => setSelectedMonth(value)}
             items={[
               { label: 'Janeiro', value: 'janeiro' },
               { label: 'Fevereiro', value: 'fevereiro' },
