@@ -8,33 +8,41 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-} from "react-native";
-import React,{ useState } from "react";
-import Background from "@components/Background";
+} from "react-native"
+import React,{ useEffect, useState } from "react"
+import Background from "@components/Background"
 import { Header } from '../../components/Header'
 import styles from '../styles'
+import { createUser } from '../../../services/integracao'
 
 export default function Register(props: any) {
-  const [username, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [date, setDate] = useState('');
-  const [modalVisivel, setModalVisivel] = useState(false);
-  const [mensagemModal, setMensagemModal] = useState('');
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [nascimento, setDate] = useState('')
 
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [modalVisivel, setModalVisivel] = useState(false)
+  const [mensagemModal, setMensagemModal] = useState('')
+
+  let data = {
+    name: name,
+    password: password,
+    email: email,
+    nascimento: nascimento, 
+  }
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
   const handleDateChange = (text: String) => {
-    const cleanedText = text.replace(/\D/g, '');
+    const cleanedText = text.replace(/\D/g, '')
 
     if (cleanedText.length <= 2) {
-      setDate(cleanedText);
+      setDate(cleanedText)
     } else if (cleanedText.length <= 4) {
-      setDate(cleanedText.substring(0, 2) + '/' + cleanedText.substring(2));
+      setDate(cleanedText.substring(0, 2) + '/' + cleanedText.substring(2))
     } else {
       setDate(
         cleanedText.substring(0, 2) +
@@ -42,55 +50,51 @@ export default function Register(props: any) {
           cleanedText.substring(2, 4) +
           '/' +
           cleanedText.substring(4, 8)
-      );
+      )
     }
-  };
+  }
 
-  // const handleRegister = async() => {
-  //   try {
-  //     const response = await apiRegister.post('/register', {
-  //       username,
-  //       email,
-  //       date,
-  //       password
-  //     });
-
-  //     setMensagemModal('Cadastro realizado com sucesso! Enviamos um e-mail com sua matricula'); 
-  //     console.log(response)
-  //     toggleModal();
-  //   } catch (error) {
-  //     setMensagemModal('Erro no cadastro, tente novamente mais tarde');
-  //     console.error(response)
-  //     toggleModal();
-  //   }
-  // };
+    async function handleRegistration(data: any) {
+      try {
+          const response = await createUser(data);
+          setName('')
+    setEmail('')
+    setPassword('')
+    setDate('')
+     setMensagemModal('Cadastro realizado com sucesso! Enviamos um e-mail com sua matricula') 
+    toggleModal()
+      } catch (error) {
+         setMensagemModal('Erro no cadastro, tente novamente mais tarde')
+      toggleModal() 
+      }
+  }
 
   const toggleModal = () => {
-    setModalVisivel(!modalVisivel);
-  };
+    setModalVisivel(!modalVisivel)
+  }
 
-  const samePasswordValue = () => {
+  const samePasswordValue = (e: { preventDefault: () => void }) => {
     if(password==passwordConfirmation && password.length>8 && password.includes('!'||'@'||'#'||'%'||'&'||'*')){
-      // handleRegister();
-      handleLogin();
+      handleRegistration(data)
+
+      setTimeout(() => {
+        props.navigation.replace('home');
+      }, 2100)
+
     }else if(password!=passwordConfirmation){
-      setMensagemModal('As senhas são diferentes, por favor insira a mesma senha');
-      toggleModal();
+      setMensagemModal('As senhas são diferentes, por favor insira a mesma senha')
+      toggleModal()
     }else if(password.length<8){
-      setMensagemModal('A senha é muito curta, por favor insira mais caracteres');
-      toggleModal();
+      setMensagemModal('A senha é muito curta, por favor insira mais caracteres')
+      toggleModal()
     }else if(password.includes('!'||'@'||'#'||'%'||'&'||'*')==false){
-      setMensagemModal('A senha precisa conter pelo menos um caractere especial(exemplo: !)');
-      toggleModal();
+      setMensagemModal('A senha precisa conter pelo menos um caractere especial(exemplo: !)')
+      toggleModal()
     }
   }
 
-  function newLogin(){
+  function irLogin(){
     props.navigation.navigate('login')
-  }
-
-  function handleLogin(){
-    props.navigation.navigate('home')
   }
 
   return (
@@ -103,8 +107,8 @@ export default function Register(props: any) {
         transparent={true}
         visible={modalVisivel}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisivel(!modalVisivel);
+          Alert.alert('Modal has been closed.')
+          setModalVisivel(!modalVisivel)
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
@@ -124,7 +128,7 @@ export default function Register(props: any) {
             style={styles.input}
             placeholder="Digite seu nome completo"
             keyboardType="default"
-            value={username}
+            value={name}
             onChangeText={setName}
           />
           <Text style={styles.formLabel3}>Email</Text>
@@ -140,7 +144,7 @@ export default function Register(props: any) {
               style={styles.input}
               placeholder="DD/MM/YYYY"
               keyboardType="numeric"
-              value={date}
+              value={nascimento}
               onChangeText={handleDateChange}
           />
           <Image
@@ -187,10 +191,10 @@ export default function Register(props: any) {
             <Text style={styles.buttonText} onPress={samePasswordValue}>Cadastrar</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonRegister}>
-            <Text style={styles.registerText} onPress={newLogin}>Voltar para o login</Text>
+            <Text style={styles.registerText} onPress={irLogin}>Voltar para o login</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
     </Background>
-  );
+  )
 }
