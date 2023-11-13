@@ -1,16 +1,16 @@
-import React, { useState, ReactNode } from "react";
+import React, { useState} from "react";
 import {
   View,
   Text,
   TextInput,
   Image,
   TouchableOpacity,
-  ScrollView,
-  Platform,
+  ScrollView
 } from "react-native";
 import { Header } from "../../components/Header";
 import Background from "@components/Background";
 import styles from "../styles";
+import { login } from '../../../services/integracao'
 
 export function Login(props: any) {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,11 +20,16 @@ export function Login(props: any) {
   const [modalMessage, setModalMessage] = useState("");
   const [logged, setLogged] = useState(false);
 
+  let data = {
+    matricula: matricula,
+    password: password
+  }
+    
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  function handleNoLogin() {
+  function irCadastro() {
     props.navigation.navigate("register");
   }
 
@@ -36,11 +41,23 @@ export function Login(props: any) {
     props.navigation.navigate("recoveryMatricula");
   }
 
-  function handleLogin() {
-    setLogged(true);
-    console.log("logou");
-    props.navigation.navigate("home");
-  }
+ async function handleLogin(data: any) {
+      try {
+        const response = await login(data);
+        console.log("respostaLogin", response)
+        setLogged(true);
+        setMatricula('')
+        setPassword('')
+        setTimeout(() => {
+          props.navigation.replace('home');
+        }, 2000)
+      } catch (error) {
+        console.error("error login", error)
+        setTimeout(() => {
+          props.navigation.replace('home');
+        }, 2000)
+      }
+    }
 
   return (
     <Background>
@@ -89,7 +106,7 @@ export function Login(props: any) {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonRegister}>
-            <Text style={styles.registerText} onPress={handleNoLogin}>
+            <Text style={styles.registerText} onPress={irCadastro}>
               Não possui login? Cadastre-se aqui!
             </Text>
           </TouchableOpacity>
