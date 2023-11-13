@@ -132,6 +132,7 @@ export default function Register(props: any) {
             value={name}
             onChangeText={setName}
           />
+          <View style={styles.separador}></View>
           <Text style={styles.formLabel3}>Email</Text>
           <TextInput
             style={styles.input}
@@ -140,6 +141,7 @@ export default function Register(props: any) {
             value={email}
             onChangeText={setEmail}
           />
+          <View style={styles.separador}></View>
           <Text style={styles.formLabel3}>Data de nascimento</Text>
           <TextInput
             style={styles.input}
@@ -148,10 +150,7 @@ export default function Register(props: any) {
             value={nascimento}
             onChangeText={handleDateChange}
           />
-          <Image
-            source={require("../../../assets/calendario.png")}
-            style={styles.image}
-          />
+          <View style={styles.separador}></View>
           <Text style={styles.formLabel3}>Insira sua senha</Text>
           <TextInput
             style={styles.input}
@@ -170,6 +169,7 @@ export default function Register(props: any) {
               style={styles.image}
             />
           </TouchableOpacity>
+          <View style={styles.separador}></View>
           <Text style={styles.formLabel3}>Repita sua senha</Text>
           <TextInput
             style={styles.input}

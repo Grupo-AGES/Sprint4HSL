@@ -1,7 +1,7 @@
 import {View, Image, Text} from 'react-native';
 import styles from './aniverStyle';
 import { useEffect, useState } from 'react';
-import { birthdays } from 'services/integracao';
+import { birthdays } from '../../../services/integracao';
 
 export function AniversariantesDia() {
     const [aniversariantes, setAniversariantes] = useState([]);
@@ -10,9 +10,9 @@ export function AniversariantesDia() {
     const ano = hoje.getFullYear();
         let i =0
         const nascimento = ''
-        for(i=0, i<aniversariantes.length, i++){
-    const nascimento = aniversariantes[i].nascimento
-        }
+    //     for(i=0, i<aniversariantes.length, i++){
+    // const nascimento = aniversariantes[i].nascimento
+    //     }
     const partes = nascimento.split("/");
     const anoNascimento: string = partes[2];
     const anoNumber = parseInt(anoNascimento)

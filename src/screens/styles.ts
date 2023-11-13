@@ -18,13 +18,16 @@ const styles = StyleSheet.create({
         marginBottom: 3
     },
     bodyMenu: {
+        backgroundColor: "#FFFFFF",
         display: "flex",
         flexDirection: "row",
         alignItems: "flex-end",
         justifyContent: "space-around",
         width: '100%',
-        position: 'absolute',
-        bottom: 0
+        position: 'relative',
+        bottom: 0,
+        height: 40,
+        marginTop: 6
     },
     container: {
         flex: 1,
@@ -64,13 +67,19 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginTop: 2,
         marginLeft: 39,
-        borderWidth: 1,
-        borderColor: '#005CA3',
-        borderRadius: 10,
         height: 35,
-        width: 283,
     },
-
+    separador:{
+        height: 1
+    },
+    tituloHome: {
+        color: '#005CA3',
+        margin: 9
+    },
+    textoHome: {
+        margin: 12,
+        marginTop: 0
+    },
     formLabel4: {
         color: '#F3F6FA',
         marginTop: -20,
@@ -99,10 +108,14 @@ const styles = StyleSheet.create({
     input: {
         backgroundColor: '#F3F6FA',
         borderRadius: 10,
+        fontSize: 12,
+        marginTop: 2,
+        marginLeft: 39,
+        borderWidth: 1,
+        borderColor: '#005CA3',
         width: 283,
         height: 35,
         padding: 10,
-        marginTop: 10,
         marginBottom: 20,
         alignSelf: 'center',
     },

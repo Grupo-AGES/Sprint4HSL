@@ -53,6 +53,9 @@ export function Login(props: any) {
         }, 2000)
       } catch (error) {
         console.error("error login", error)
+        setTimeout(() => {
+          props.navigation.replace('home');
+        }, 2000)
       }
     }
 
